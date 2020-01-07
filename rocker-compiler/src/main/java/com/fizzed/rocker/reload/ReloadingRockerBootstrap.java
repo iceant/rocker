@@ -53,16 +53,24 @@ public class ReloadingRockerBootstrap extends DefaultRockerBootstrap {
         public String headerHash;                   // hash of header (interface)
     }
     
-    private final RockerConfiguration configuration;
+    private RockerConfiguration configuration;
     private final ConcurrentHashMap<String,String> models;
     private final ConcurrentHashMap<String,LoadedTemplate> templates;
     private RockerClassLoader classLoader;
     
     public ReloadingRockerBootstrap() {
-        this.configuration = new RockerConfiguration();
+        this(new RockerConfiguration());
+    }
+
+    public ReloadingRockerBootstrap(RockerConfiguration configuration) {
+        this.configuration = configuration;
         this.models = new ConcurrentHashMap<>();
         this.templates = new ConcurrentHashMap<>();
         this.classLoader = buildClassLoader();
+    }
+
+    public void setConfiguration(RockerConfiguration configuration){
+        this.configuration = configuration;
     }
 
     public RockerConfiguration getConfiguration() {

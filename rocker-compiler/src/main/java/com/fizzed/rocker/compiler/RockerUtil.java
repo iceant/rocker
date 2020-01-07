@@ -135,7 +135,8 @@ public class RockerUtil {
         int pos = templateName.lastIndexOf('.');
         // must be at least 1 char
         if (pos < 0) {
-            throw new IllegalArgumentException("Invalid template name format (unable find last dot character)");
+            //throw new IllegalArgumentException("Invalid template name format (unable find last dot character)");
+            return ContentType.RAW;
         }
         
         String ext = templateName.substring(pos+1);
@@ -145,8 +146,8 @@ public class RockerUtil {
                 return type;
             }
         }
-        
-        throw new IllegalArgumentException("Unsupported content type for extension [" + ext + "] for template name [" + templateName + "]");
+        return ContentType.RAW;
+//        throw new IllegalArgumentException("Unsupported content type for extension [" + ext + "] for template name [" + templateName + "]");
     }
     
     public static Collection<File> listFileTree(File dir) {
