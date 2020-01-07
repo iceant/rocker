@@ -36,7 +36,7 @@ public class Java8FeaturesTest {
     
     @Test
     public void java8ContentClosure() throws Exception {
-        String html = new rocker.Java8ContentClosureA()
+        String html = new rocker.Java8ContentClosureA_dot_rocker_dot_html()
             .render()
             .toString();
 
@@ -46,7 +46,7 @@ public class Java8FeaturesTest {
     
     @Test
     public void java8ValueClosure() throws Exception {
-        String html = new rocker.Java8ValueClosureA()
+        String html = new rocker.Java8ValueClosureA_dot_rocker_dot_html()
             .s("a")
             .i(1)
             .render()
@@ -58,7 +58,7 @@ public class Java8FeaturesTest {
     
     @Test
     public void ifElseIfBlockInWithBlock() throws Exception {
-        String html = new rocker.IfElseIfBlockInWithBlock()
+        String html = new rocker.IfElseIfBlockInWithBlock_dot_rocker_dot_html()
             .values(Arrays.asList(1))
             .render()
             .toString()
@@ -68,7 +68,7 @@ public class Java8FeaturesTest {
     
     @Test
     public void forBlockEnhancedUntypedArray() throws Exception {
-        String html = new rocker.ForBlockEnhancedUntypedArray()
+        String html = new rocker.ForBlockEnhancedUntypedArray_dot_rocker_dot_html()
             .booleans(new boolean[] { false })
             .chars(new char[] { 'a' })
             .bytes(new byte[] { (byte)0x40 })
@@ -89,7 +89,7 @@ public class Java8FeaturesTest {
     @Test
     public void forBlockEnhancedUntypedCollection() throws Exception {
         
-        String html = new rocker.ForBlockEnhancedUntypedCollection()
+        String html = new rocker.ForBlockEnhancedUntypedCollection_dot_rocker_dot_html()
             .items(Arrays.asList("a", "b", "c"))
             .render()
             .toString()
@@ -102,7 +102,7 @@ public class Java8FeaturesTest {
     @Test
     public void forBlockEnhancedUntypedCollectionWithIterator() throws Exception {
         
-        String html = new rocker.ForBlockEnhancedUntypedCollectionWithIterator()
+        String html = new rocker.ForBlockEnhancedUntypedCollectionWithIterator_dot_rocker_dot_html()
             .items(Arrays.asList("a", "b", "c"))
             .render()
             .toString()
@@ -120,7 +120,7 @@ public class Java8FeaturesTest {
         items.put(2, "b");
         items.put(3, "c");
         
-        String html = new rocker.ForBlockEnhancedUntypedMap()
+        String html = new rocker.ForBlockEnhancedUntypedMap_dot_rocker_dot_html()
             .items(items)
             .render()
             .toString()
@@ -138,7 +138,7 @@ public class Java8FeaturesTest {
         items.put(2, "b");
         items.put(3, "c");
         
-        String html = new rocker.ForBlockEnhancedUntypedMapWithIterator()
+        String html = new rocker.ForBlockEnhancedUntypedMapWithIterator_dot_rocker_dot_html()
             .items(items)
             .render()
             .toString()
@@ -151,7 +151,7 @@ public class Java8FeaturesTest {
     @Test
     public void forBlockIterator() throws Exception {
 
-        String html = new rocker.ForBlockIterator()
+        String html = new rocker.ForBlockIterator_dot_rocker_dot_html()
             .strings(Arrays.asList("1", "2", "3"))
             .render()
             .toString()
@@ -163,7 +163,7 @@ public class Java8FeaturesTest {
     
     @Test
     public void forBlockWithJavaIterator() throws Exception {
-        String html = new rocker.ForBlockWithJavaIterator()
+        String html = new rocker.ForBlockWithJavaIterator_dot_rocker_dot_html()
             .strings(Arrays.asList("1", "2", "3"))
             .render()
             .toString()
@@ -174,7 +174,7 @@ public class Java8FeaturesTest {
     
     @Test
     public void forBlockWithJavaStream() throws Exception {
-        String html = new rocker.ForBlockWithJavaStream()
+        String html = new rocker.ForBlockWithJavaStream_dot_rocker_dot_html()
             .strings(Arrays.asList("1", "2", "3").stream())
             .render()
             .toString()
@@ -185,7 +185,7 @@ public class Java8FeaturesTest {
     
     @Test
     public void breakStatement() throws Exception {
-        String out = rocker.BreakStatement.template()
+        String out = rocker.BreakStatement_dot_rocker_dot_html.template()
             .render()
             .toString()
             .trim();
@@ -195,7 +195,7 @@ public class Java8FeaturesTest {
     
     @Test
     public void continueStatement() throws Exception {
-        String out = rocker.ContinueStatement.template()
+        String out = rocker.ContinueStatement_dot_rocker_dot_html.template()
             .render()
             .toString()
             .trim();
@@ -207,7 +207,7 @@ public class Java8FeaturesTest {
     public void withBlock() throws Exception {
         List<String> strings = Arrays.asList("b", "a", "c");
         
-        String html = new rocker.WithBlock()
+        String html = new rocker.WithBlock_dot_rocker_dot_html()
             .strings(strings)
             .render()
             .toString()
@@ -220,7 +220,7 @@ public class Java8FeaturesTest {
     public void withBlockUsingLambda() throws Exception {
         List<String> strings = Arrays.asList("a", "c", "b");
         
-        String html = new rocker.WithBlockUsingLamda()
+        String html = new rocker.WithBlockUsingLamda_dot_rocker_dot_html()
             .strings(strings)
             .render()
             .toString()
@@ -233,7 +233,7 @@ public class Java8FeaturesTest {
     public void withBlockNested() throws Exception {
         List<String> strings = Arrays.asList("b", "a", "c");
         
-        String html = new rocker.WithBlockNested()
+        String html = new rocker.WithBlockNested_dot_rocker_dot_html()
             .strings(strings)
             .render()
             .toString()
@@ -244,7 +244,7 @@ public class Java8FeaturesTest {
     
     @Test
     public void withBlockNullSafeButWithValue() throws Exception {
-        String html = new rocker.WithBlockNullSafe()
+        String html = new rocker.WithBlockNullSafe_dot_rocker_dot_html()
             .strings(Arrays.asList("a", "b", "c"))
             .render()
             .toString()
@@ -255,7 +255,7 @@ public class Java8FeaturesTest {
     
     @Test
     public void withBlockNullSafeExpressionReturnsNull() throws Exception {
-        String html = new rocker.WithBlockNullSafe()
+        String html = new rocker.WithBlockNullSafe_dot_rocker_dot_html()
             .strings(Arrays.asList(null, "b", "c"))
             .render()
             .toString()
@@ -266,7 +266,7 @@ public class Java8FeaturesTest {
     
     @Test
     public void withBlockElse() throws Exception {
-        String html = new rocker.WithBlockElse()
+        String html = new rocker.WithBlockElse_dot_rocker_dot_html()
             .a(Arrays.asList(null, "b", "c"))
             .i(0)
             .render()
@@ -275,7 +275,7 @@ public class Java8FeaturesTest {
         
         assertThat(html, is("in-with-else-block"));
         
-        html = new rocker.WithBlockElse()
+        html = new rocker.WithBlockElse_dot_rocker_dot_html()
             .a(Arrays.asList(null, "b", "c"))
             .i(1)
             .render()

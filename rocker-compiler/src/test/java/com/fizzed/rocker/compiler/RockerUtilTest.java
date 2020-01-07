@@ -31,15 +31,15 @@ public class RockerUtilTest {
     
     @Test
     public void templateNameToName() throws Exception {
-        Assert.assertEquals("index", RockerUtil.templateNameToName("index.rocker.html"));
-        Assert.assertEquals("index", RockerUtil.templateNameToName("index.html"));
+        Assert.assertEquals("index_dot_rocker_dot_html", RockerUtil.templateNameToName("index.rocker.html"));
+        Assert.assertEquals("index_dot_html", RockerUtil.templateNameToName("index.html"));
         
-        try {
-            RockerUtil.templateNameToName("index");
-            Assert.fail("Exception expected");
-        } catch (IllegalArgumentException e) {
-            // expected
-        }
+//        try {
+//            RockerUtil.templateNameToName("index");
+//            Assert.fail("Exception expected");
+//        } catch (IllegalArgumentException e) {
+//            // expected
+//        }
     }
     
     @Test

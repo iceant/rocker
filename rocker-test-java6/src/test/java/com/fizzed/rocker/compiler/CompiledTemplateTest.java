@@ -42,14 +42,14 @@ public class CompiledTemplateTest {
     
     @Test
     public void noHeader() throws Exception {
-        String html = new rocker.NoHeader().render().toString();
+        String html = new rocker.NoHeader_dot_rocker_dot_html().render().toString();
         
         Assert.assertEquals("<h1>Hello @ World!</h1>", html);
     }
     
     @Test
     public void renderOnlyAllowedOnce() throws Exception {
-        rocker.NoHeader template = new rocker.NoHeader();
+        rocker.NoHeader_dot_rocker_dot_html template = new rocker.NoHeader_dot_rocker_dot_html();
         String html = template.render().toString();
         
         Assert.assertEquals("<h1>Hello @ World!</h1>", html);
@@ -64,7 +64,7 @@ public class CompiledTemplateTest {
     
     @Test
     public void javaImport() throws Exception {
-        String html = new rocker.JavaImport()
+        String html = new rocker.JavaImport_dot_rocker_dot_html()
             .strings(Arrays.asList("first", "second"))
             .render()
             .toString()
@@ -75,7 +75,7 @@ public class CompiledTemplateTest {
     
     @Test
     public void singleLetterFile() throws Exception {
-        String html = new rocker.A()
+        String html = new rocker.A_dot_rocker_dot_html()
             .s("test")
             .render()
             .toString()
@@ -85,7 +85,7 @@ public class CompiledTemplateTest {
     
     @Test
     public void args() throws Exception {
-        String html = new rocker.Args()
+        String html = new rocker.Args_dot_rocker_dot_html()
             .s("string")
             .i(10)
             .render()
@@ -97,7 +97,7 @@ public class CompiledTemplateTest {
     
     @Test
     public void argsOnMoreThanOneLine() throws Exception {
-        String html = new rocker.ArgsOnMoreThanOneLine()
+        String html = new rocker.ArgsOnMoreThanOneLine_dot_rocker_dot_html()
             .s("string")
             .i(10)
             .render()
@@ -109,7 +109,7 @@ public class CompiledTemplateTest {
     
     @Test
     public void argsEmptyButWithSpace() throws Exception {
-        String html = new rocker.ArgsEmptyButWithSpace()
+        String html = new rocker.ArgsEmptyButWithSpace_dot_rocker_dot_html()
             .render()
             .toString();
         
@@ -127,7 +127,7 @@ public class CompiledTemplateTest {
             Arrays.asList("a", "b", "c")
         };
         
-        String html = new rocker.ArgsComplexTypes()
+        String html = new rocker.ArgsComplexTypes_dot_rocker_dot_html()
             .listOfMaps(listOfMaps)
             .stringArray(new String[] { "first", "second" })
             .arrayOfLists(arrayOfLists)
@@ -142,7 +142,7 @@ public class CompiledTemplateTest {
     public void renderingException() throws Exception {
         // chained call on user will trigger NPE during rendering
         try {
-            String html = new rocker.ValueWithChainedCall()
+            String html = new rocker.ValueWithChainedCall_dot_rocker_dot_html()
                 .user(null)
                 .render()
                 .toString();
@@ -157,7 +157,7 @@ public class CompiledTemplateTest {
     
     @Test
     public void utf8() throws Exception {
-        String html = rocker.UTF8
+        String html = rocker.UTF8_dot_rocker_dot_html
             .template("\u20AC")
             .render()
             .toString();
@@ -169,7 +169,7 @@ public class CompiledTemplateTest {
     
     @Test
     public void escaped() throws Exception {
-        String html = new rocker.Escaped()
+        String html = new rocker.Escaped_dot_rocker_dot_html()
             .s("str<>&ing")
             .render()
             .toString()
@@ -182,7 +182,7 @@ public class CompiledTemplateTest {
     public void raw() throws Exception {
         // normally these chars would be escaped, but with raw feature they
         // will skip the content type escape mechanism
-        String html = new rocker.Raw()
+        String html = new rocker.Raw_dot_rocker_dot_html()
             .s("str<>&ing")
             .render()
             .toString()
@@ -194,7 +194,7 @@ public class CompiledTemplateTest {
     @Test
     public void largeLargeContent() throws Exception {
         // render large large content into a string
-        String html = new rocker.LargeLargeContent()
+        String html = new rocker.LargeLargeContent_dot_rocker_dot_html()
             .s("hello")
             .t("world")
             .render()
@@ -214,7 +214,7 @@ public class CompiledTemplateTest {
     public void discardLogicWhitespace1() throws Exception {
         // verify that nothing gets chomped if something on same line as args
         
-        String html = rocker.DiscardLogicWhitespace1
+        String html = rocker.DiscardLogicWhitespace1_dot_rocker_dot_html
             .template("World")
             .render()
             .toString();
@@ -228,7 +228,7 @@ public class CompiledTemplateTest {
     public void discardLogicWhitespace2() throws Exception {
         // verify that nothing gets chomped if something on same line as args
         
-        String html = rocker.DiscardLogicWhitespace2
+        String html = rocker.DiscardLogicWhitespace2_dot_rocker_dot_html
             .template("World")
             .render()
             .toString();
@@ -242,7 +242,7 @@ public class CompiledTemplateTest {
     public void discardLogicWhitespace3() throws Exception {
         // verify that nothing gets chomped if something on same line as args
         
-        String html = rocker.DiscardLogicWhitespace3
+        String html = rocker.DiscardLogicWhitespace3_dot_rocker_dot_html
             .template("World")
             .render()
             .toString();
@@ -256,7 +256,7 @@ public class CompiledTemplateTest {
     public void discardLogicWhitespaceAfterArgsRetain() throws Exception {
         // verify that nothing gets chomped if something on same line as args
         
-        String html = rocker.DiscardLogicWhitespaceAfterArgsRetain
+        String html = rocker.DiscardLogicWhitespaceAfterArgsRetain_dot_rocker_dot_html
             .template("Hello")
             .render()
             .toString();
@@ -268,7 +268,7 @@ public class CompiledTemplateTest {
     
     @Test
     public void discardLogicWhitespaceIfElse() throws Exception {
-        String html = rocker.DiscardLogicWhitespaceIfElse
+        String html = rocker.DiscardLogicWhitespaceIfElse_dot_rocker_dot_html
             .template("\u20AC")
             .render()
             .toString();
@@ -284,7 +284,7 @@ public class CompiledTemplateTest {
     
     @Test
     public void discardLogicWhitespaceContentClosure() throws Exception {
-        String html = rocker.DiscardLogicWhitespaceContentClosureA
+        String html = rocker.DiscardLogicWhitespaceContentClosureA_dot_rocker_dot_html
             .template("Hello")
             .render()
             .toString();
@@ -306,7 +306,7 @@ public class CompiledTemplateTest {
         User user = new User();
         user.setCreatedAt(new DateTime(2015, 3, 15, 0, 0, 0, 0, DateTimeZone.UTC));
         
-        String html = new rocker.ValueWithChainedCall()
+        String html = new rocker.ValueWithChainedCall_dot_rocker_dot_html()
             .user(user)
             .render()
             .toString()
@@ -318,7 +318,7 @@ public class CompiledTemplateTest {
     @Test
     public void plainTextIncludesJavaScript() throws Exception {
 
-        String html = new rocker.PlainTextIncludesJavaScript()
+        String html = new rocker.PlainTextIncludesJavaScript_dot_rocker_dot_html()
             .render()
             .toString()
             .trim();
@@ -336,7 +336,7 @@ public class CompiledTemplateTest {
     @Test
     public void plainTextIncludesJavaScriptWithinBlock() throws Exception {
 
-        String html = new rocker.PlainTextIncludesJavaScriptWithinBlock()
+        String html = new rocker.PlainTextIncludesJavaScriptWithinBlock_dot_rocker_dot_html()
             .b(true)
             .render()
             .toString()
@@ -351,7 +351,7 @@ public class CompiledTemplateTest {
         
         Assert.assertEquals(expected, html);
         
-        String html2 = new rocker.PlainTextIncludesJavaScriptWithinBlock()
+        String html2 = new rocker.PlainTextIncludesJavaScriptWithinBlock_dot_rocker_dot_html()
             .b(false)
             .render()
             .toString()
@@ -363,7 +363,7 @@ public class CompiledTemplateTest {
     @Test
     public void plainTextIncludesStyleWithinBlock() throws Exception {
         
-        String html = new rocker.PlainTextIncludesStyleWithinBlock()
+        String html = new rocker.PlainTextIncludesStyleWithinBlock_dot_rocker_dot_html()
             .b(true)
             .size("0px")
             .render()
@@ -397,7 +397,7 @@ public class CompiledTemplateTest {
     @Test
     public void ifElseBlock() throws Exception {
 
-        String html = new rocker.IfElseBlock()
+        String html = new rocker.IfElseBlock_dot_rocker_dot_html()
             .b(true)
             .render()
             .toString()
@@ -405,7 +405,7 @@ public class CompiledTemplateTest {
         
         Assert.assertEquals("true-block", html);
         
-        html = new rocker.IfElseBlock()
+        html = new rocker.IfElseBlock_dot_rocker_dot_html()
             .b(false)
             .render()
             .toString()
@@ -417,7 +417,7 @@ public class CompiledTemplateTest {
     @Test
     public void ifElseBlockWithWhitespace() throws Exception {
 
-        String html = new rocker.IfElseBlockWithWhitespace()
+        String html = new rocker.IfElseBlockWithWhitespace_dot_rocker_dot_html()
             .b(true)
             .render()
             .toString()
@@ -425,7 +425,7 @@ public class CompiledTemplateTest {
         
         Assert.assertEquals("true-block", html);
         
-        html = new rocker.IfElseBlockWithWhitespace()
+        html = new rocker.IfElseBlockWithWhitespace_dot_rocker_dot_html()
             .b(false)
             .render()
             .toString()
@@ -437,7 +437,7 @@ public class CompiledTemplateTest {
     @Test
     public void ifElseBlockMixedJavascript() throws Exception {
 
-        String html = new rocker.IfElseBlockMixedJavascript()
+        String html = new rocker.IfElseBlockMixedJavascript_dot_rocker_dot_html()
                 .b(true)
                 .render()
                 .toString()
@@ -463,7 +463,7 @@ public class CompiledTemplateTest {
     
     @Test
     public void ifElseIfBlockInWithBlock() throws Exception {
-        String html = new rocker.IfElseIfBlockInWithBlock()
+        String html = new rocker.IfElseIfBlockInWithBlock_dot_rocker_dot_html()
             .values(Arrays.asList(1))
             .render()
             .toString()
@@ -473,7 +473,7 @@ public class CompiledTemplateTest {
     
     @Test
     public void ifElseIfBlockIncludeTemplate() throws Exception {
-        String html = new rocker.IfElseIfBlockIncludeTemplate()
+        String html = new rocker.IfElseIfBlockIncludeTemplate_dot_rocker_dot_html()
             .value(1)
             .render()
             .toString()
@@ -484,7 +484,7 @@ public class CompiledTemplateTest {
     @Test
     public void forBlock() throws Exception {
 
-        String html = new rocker.ForBlock()
+        String html = new rocker.ForBlock_dot_rocker_dot_html()
             .strings(Arrays.asList("a", "b", "c"))
             .render()
             .toString()
@@ -497,7 +497,7 @@ public class CompiledTemplateTest {
     @Test
     public void forBlockWithWhitespace() throws Exception {
 
-        String html = new rocker.ForBlockWithWhitespace()
+        String html = new rocker.ForBlockWithWhitespace_dot_rocker_dot_html()
             .strings(Arrays.asList("a", "b", "c"))
             .render()
             .toString()
@@ -510,7 +510,7 @@ public class CompiledTemplateTest {
     @Test
     public void forBlockGeneral() throws Exception {
 
-        String html = new rocker.ForBlockGeneral()
+        String html = new rocker.ForBlockGeneral_dot_rocker_dot_html()
             .strings(Arrays.asList("a", "b", "c"))
             .render()
             .toString()
@@ -524,7 +524,7 @@ public class CompiledTemplateTest {
     @Test
     public void forBlockIterator() throws Exception {
 
-        String html = new rocker.ForBlockIterator()
+        String html = new rocker.ForBlockIterator_dot_rocker_dot_html()
             .strings(Arrays.asList("1", "2", "3"))
             .render()
             .toString()
@@ -537,7 +537,7 @@ public class CompiledTemplateTest {
     @Test
     public void forBlockEnhancedTyped() throws Exception {
 
-        String html = new rocker.ForBlockEnhancedTyped()
+        String html = new rocker.ForBlockEnhancedTyped_dot_rocker_dot_html()
             .items(Arrays.asList("a", "b", "c"))
             .render()
             .toString()
@@ -551,7 +551,7 @@ public class CompiledTemplateTest {
     @Test
     public void forBlockEnhancedTypedArray() throws Exception {
 
-        String html = new rocker.ForBlockEnhancedTypedArray()
+        String html = new rocker.ForBlockEnhancedTypedArray_dot_rocker_dot_html()
             .booleans(new boolean[] { false })
             .chars(new char[] { 'a' })
             .bytes(new byte[] { (byte)0x40 })
@@ -572,7 +572,7 @@ public class CompiledTemplateTest {
     @Test
     public void forBlockEnhancedTypedCollection() throws Exception {
 
-        String html = new rocker.ForBlockEnhancedTypedCollection()
+        String html = new rocker.ForBlockEnhancedTypedCollection_dot_rocker_dot_html()
             .items(Arrays.asList("a", "b", "c"))
             .render()
             .toString()
@@ -586,7 +586,7 @@ public class CompiledTemplateTest {
     @Test
     public void forBlockEnhancedTypedCollectionWithForIterator() throws Exception {
 
-        String html = new rocker.ForBlockEnhancedTypedCollectionWithForIterator()
+        String html = new rocker.ForBlockEnhancedTypedCollectionWithForIterator_dot_rocker_dot_html()
             .items(Arrays.asList("a", "b", "c"))
             .render()
             .toString()
@@ -604,7 +604,7 @@ public class CompiledTemplateTest {
         map.put(2, "b");
         map.put(3, "c");
         
-        String html = new rocker.ForBlockEnhancedTypedMap()
+        String html = new rocker.ForBlockEnhancedTypedMap_dot_rocker_dot_html()
             .items(map)
             .render()
             .toString()
@@ -617,7 +617,7 @@ public class CompiledTemplateTest {
     
     @Test
     public void implicits() throws Exception {
-        String html = rocker.ImplicitC
+        String html = rocker.ImplicitC_dot_rocker_dot_html
             .template()
             .implicit("a")
             .render()
@@ -631,7 +631,7 @@ public class CompiledTemplateTest {
     @Test
     public void implicitsIncludeOtherTemplates() throws Exception {
         // implicit values copied when other templates included
-        String html = rocker.ImplicitA
+        String html = rocker.ImplicitA_dot_rocker_dot_html
             .template()
             .implicit("a")
             .render()
@@ -644,7 +644,7 @@ public class CompiledTemplateTest {
     
     @Test
     public void includeOtherTemplates() throws Exception {
-        String html = new rocker.IncludeA()
+        String html = new rocker.IncludeA_dot_rocker_dot_html()
             .b("b")
             .c("c")
             .render()
@@ -656,7 +656,7 @@ public class CompiledTemplateTest {
     
     @Test
     public void contentClosure() throws Exception {
-        String html = new rocker.ContentClosureA()
+        String html = new rocker.ContentClosureA_dot_rocker_dot_html()
             .render()
             .toString();
 
@@ -666,7 +666,7 @@ public class CompiledTemplateTest {
     
     @Test
     public void valueClosure() throws Exception {
-        String html = new rocker.ValueClosureA()
+        String html = new rocker.ValueClosureA_dot_rocker_dot_html()
             .s("a")
             .i(1)
             .render()
@@ -680,7 +680,7 @@ public class CompiledTemplateTest {
     public void types() throws Exception {
         // normally these chars would be escaped, but with raw feature they
         // will skip the content type escape mechanism
-        String html = new rocker.Types()
+        String html = new rocker.Types_dot_rocker_dot_html()
             .str("Joe")
             .b((byte)127)
             .s((short)32767)
@@ -700,7 +700,7 @@ public class CompiledTemplateTest {
     
     @Test
     public void breakStatement() throws Exception {
-        String out = rocker.BreakStatement.template()
+        String out = rocker.BreakStatement_dot_rocker_dot_html.template()
             .render()
             .toString()
             .trim();
@@ -710,7 +710,7 @@ public class CompiledTemplateTest {
     
     @Test
     public void continueStatement() throws Exception {
-        String out = rocker.ContinueStatement.template()
+        String out = rocker.ContinueStatement_dot_rocker_dot_html.template()
             .render()
             .toString()
             .trim();
@@ -720,7 +720,7 @@ public class CompiledTemplateTest {
 
     @Test
     public void longUnicodeString() throws Exception {
-        String out = rocker.LongUnicodeString.template()
+        String out = rocker.LongUnicodeString_dot_rocker_dot_html.template()
                 .render()
                 .toString()
                 .trim();
@@ -756,7 +756,7 @@ public class CompiledTemplateTest {
 
     @Test
     public void postProcessingTest1() throws Exception {
-        String out = rocker.PostProcessing1.template("Test")
+        String out = rocker.PostProcessing1_dot_rocker_dot_html.template("Test")
             .render()
             .toString();
         
@@ -767,7 +767,7 @@ public class CompiledTemplateTest {
     public void withBlock() throws Exception {
         List<String> strings = Arrays.asList("b", "a", "c");
         
-        String html = new rocker.WithBlock()
+        String html = new rocker.WithBlock_dot_rocker_dot_html()
             .strings(strings)
             .render()
             .toString()
@@ -780,7 +780,7 @@ public class CompiledTemplateTest {
     public void withBlockNested() throws Exception {
         List<String> strings = Arrays.asList("b", "a", "c");
         
-        String html = new rocker.WithBlockNested()
+        String html = new rocker.WithBlockNested_dot_rocker_dot_html()
             .strings(strings)
             .render()
             .toString()
@@ -792,7 +792,7 @@ public class CompiledTemplateTest {
     @Test
     public void valueNotNullSafe() throws Exception {
         try {
-            new rocker.ValueNotNullSafe()
+            new rocker.ValueNotNullSafe_dot_rocker_dot_html()
                 .s(null)
                 .render();
             fail();
@@ -803,7 +803,7 @@ public class CompiledTemplateTest {
     
     @Test
     public void valueNullSafe() throws Exception {
-        String html = new rocker.ValueNullSafe()
+        String html = new rocker.ValueNullSafe_dot_rocker_dot_html()
             .s(null)
             .render()
             .toString()
@@ -814,7 +814,7 @@ public class CompiledTemplateTest {
     
     @Test
     public void nullTernary() throws Exception {
-        String html = new rocker.NullTernary()
+        String html = new rocker.NullTernary_dot_rocker_dot_html()
             .a(null)
             .b("b")
             .render()
@@ -823,7 +823,7 @@ public class CompiledTemplateTest {
         
         assertThat(html, is("b"));
         
-        html = new rocker.NullTernary()
+        html = new rocker.NullTernary_dot_rocker_dot_html()
             .a("a")
             .b("b")
             .render()
@@ -835,7 +835,7 @@ public class CompiledTemplateTest {
     
     @Test
     public void nullTernaryChained() throws Exception {
-        String html = new rocker.NullTernaryChained()
+        String html = new rocker.NullTernaryChained_dot_rocker_dot_html()
             .a(Arrays.asList("a", null))
             .a1(1)
             .b(Arrays.asList("a", null))
@@ -850,7 +850,7 @@ public class CompiledTemplateTest {
     @Test
     public void nullTernaryShortCircuit() throws Exception {
         // right hand expression never evaluated if var is not null
-        String html = new rocker.NullTernaryChained()
+        String html = new rocker.NullTernaryChained_dot_rocker_dot_html()
             .a(Arrays.asList("a", null))
             .a1(0)
             .b(null)
@@ -864,7 +864,7 @@ public class CompiledTemplateTest {
     
     @Test
     public void nullTernaryAdvanced() throws Exception {    
-        String html = new rocker.NullTernaryAdvanced()
+        String html = new rocker.NullTernaryAdvanced_dot_rocker_dot_html()
             .a(null)
             .b("b")
             .render()
@@ -876,7 +876,7 @@ public class CompiledTemplateTest {
     
     @Test
     public void withBlockNullSafeButWithValue() throws Exception {
-        String html = new rocker.WithBlockNullSafe()
+        String html = new rocker.WithBlockNullSafe_dot_rocker_dot_html()
             .strings(Arrays.asList("a", "b", "c"))
             .render()
             .toString()
@@ -887,7 +887,7 @@ public class CompiledTemplateTest {
     
     @Test
     public void withBlockNullSafeExpressionReturnsNull() throws Exception {
-        String html = new rocker.WithBlockNullSafe()
+        String html = new rocker.WithBlockNullSafe_dot_rocker_dot_html()
             .strings(Arrays.asList(null, "b", "c"))
             .render()
             .toString()
@@ -898,7 +898,7 @@ public class CompiledTemplateTest {
     
     @Test
     public void withBlockElse() throws Exception {
-        String html = new rocker.WithBlockElse()
+        String html = new rocker.WithBlockElse_dot_rocker_dot_html()
             .a(Arrays.asList(null, "b", "c"))
             .i(0)
             .render()
@@ -907,7 +907,7 @@ public class CompiledTemplateTest {
         
         assertThat(html, is("in-with-else-block"));
         
-        html = new rocker.WithBlockElse()
+        html = new rocker.WithBlockElse_dot_rocker_dot_html()
             .a(Arrays.asList(null, "b", "c"))
             .i(1)
             .render()
@@ -919,6 +919,6 @@ public class CompiledTemplateTest {
 
     @Test(expected = NoSuchMethodException.class)
     public void optmizedCompilerOmitsModifedAtHeader() throws Exception {
-        rocker.A.class.getMethod("getModifiedAt");
+        rocker.A_dot_rocker_dot_html.class.getMethod("getModifiedAt");
     }
 }

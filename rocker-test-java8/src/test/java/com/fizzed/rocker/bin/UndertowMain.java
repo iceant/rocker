@@ -30,7 +30,7 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import rocker.Stocks;
+import rocker.Stocks_dot_rocker_dot_html;
 
 public class UndertowMain {
     static private final Logger log = LoggerFactory.getLogger(UndertowMain.class);
@@ -42,7 +42,7 @@ public class UndertowMain {
         PathHandler rootHandler = Handlers.path().addExactPath("/", (final HttpServerExchange exchange) -> {
             // dispatch to worker thread pool
             exchange.dispatch(() -> {
-                Stocks template = rocker.Stocks.template(stocks);
+                Stocks_dot_rocker_dot_html template = rocker.Stocks_dot_rocker_dot_html.template(stocks);
 
                 ArrayOfByteArraysOutput out
                         = template.render(

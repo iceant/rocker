@@ -113,7 +113,7 @@ public class TemplateParserTest {
 
         TemplateModel model = parser.parse(f);
 
-        Assert.assertEquals("KitchenSink", model.getName());
+        Assert.assertEquals("KitchenSink_dot_rocker_dot_html", model.getName());
         Assert.assertEquals(ContentType.HTML, model.getContentType());
         Assert.assertEquals("rocker.parser", model.getPackageName());
         Assert.assertEquals("KitchenSink.rocker.html", model.getTemplateName());
@@ -787,7 +787,7 @@ public class TemplateParserTest {
 
         unit = model.findUnitByOccurrence(IfBlockElse.class, 2);
         assertThat(unit.getExpression(), nullValue());
-        assertThat(unit.getSourceRef().getText(), is("}\nelse {\nspacy\n}"));
+        assertThat(unit.getSourceRef().getText(), is("}\r\nelse {\r\nspacy\r\n}"));
     }
 
     @Test
@@ -812,7 +812,7 @@ public class TemplateParserTest {
         // Check that else is there as well.
         IfBlockElse elseUnit = model.findUnitByOccurrence(IfBlockElse.class, 1);
         assertThat(elseUnit.getExpression(), nullValue());
-        assertThat(elseUnit.getSourceRef().getText(), is("}\nelse {else}"));
+        assertThat(elseUnit.getSourceRef().getText(), is("}\r\nelse {else}"));
 
         // Finally since we had nested javascript in the template, we should find no more occurrences
         // of if, else if and else.

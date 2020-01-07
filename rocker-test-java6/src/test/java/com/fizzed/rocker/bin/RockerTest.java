@@ -36,7 +36,7 @@ public class RockerTest {
         BindableRockerModel template = Rocker.template("rocker/ArgsNotFound.rocker.html");
     }
     
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = TemplateNotFoundException.class)
     public void templateWithValidClassNameButInvalidExtension() throws Exception {
         // use a valid class name, but an invalid rocker file extension name
         BindableRockerModel template = Rocker.template("rocker/Args.ftl.html");

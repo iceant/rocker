@@ -118,6 +118,7 @@ public class TemplateCompiler {
         } else {
             classpath.append(System.getProperty("java.class.path"));
         }
+
         for (URL url : classpathUrls) {
             if (classpath.length() > 0) {
                 classpath.append(File.pathSeparator);
@@ -128,6 +129,10 @@ public class TemplateCompiler {
             } catch (Exception e) {
                 throw new CompileUnrecoverableException("Unable to build javac classpath", e);
             }
+        }
+
+        if(classpathUrls.length<1){
+            classpath.append(System.getProperty("java.class.path"));
         }
         
         // make sure compile directory exists

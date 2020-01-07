@@ -57,22 +57,15 @@ public class DefaultRockerBootstrap implements RockerBootstrap {
         if (templateName == null) {
             throw new NullPointerException("Template name was null");
         }
-        
-        // views/app/index.rocker.html
-        int pos = templateName.indexOf('.');
-        if (pos < 0) {
-            throw new IllegalArgumentException("Invalid template name '" + templateName + "'. Expecting something like 'views/app/index.rocker.html')");
+        StringBuilder names = new StringBuilder();
+
+        String[] paths = templateName.split("/");
+        for(String path : paths){
+            path = path.replace(" ", "_space_");
+            path = path.replace(".", "_dot_");
+            names.append(path).append(".");
         }
-        
-        String templateNameNoExt = templateName.substring(0, pos);
-        
-        String templateExt = templateName.substring(pos);
-        
-        if (!templateExt.startsWith(".rocker.")) {
-            throw new IllegalArgumentException("Invalid template extension '" + templateExt + "'. Expecting something like 'views/app/index.rocker.html')");
-        }
-        
-        return templateNameNoExt.replace('/', '.');
+        return names.deleteCharAt(names.length()-1).toString();
     }
 
     public RockerModel buildModel(String templatePath, ClassLoader classLoader) {

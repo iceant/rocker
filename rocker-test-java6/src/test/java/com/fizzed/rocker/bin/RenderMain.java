@@ -22,7 +22,7 @@ public class RenderMain {
     static private final Logger log = LoggerFactory.getLogger(RenderMain.class);
     
     static public void main(String[] args) {
-        String html = new rocker.Args()
+        String html = new rocker.Args_dot_rocker_dot_html()
             .s("Hi")
             .i(1)
             .render()

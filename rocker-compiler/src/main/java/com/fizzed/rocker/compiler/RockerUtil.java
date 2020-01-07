@@ -124,14 +124,11 @@ public class RockerUtil {
         s = s.replace("\r", "\\r");
         return s;
     }
-    
+
     static public String templateNameToName(String templateName) {
-        int pos = templateName.indexOf('.');
-        // must be at least 1 char
-        if (pos < 1) {
-            throw new IllegalArgumentException("Invalid template name format (unable find first dot character)");
-        }
-        return templateName.substring(0, pos);
+        templateName = templateName.replace(".", "_dot_");
+        templateName = templateName.replace(" ", "_space_");
+        return templateName;
     }
     
     static public ContentType templateNameToContentType(String templateName) {
