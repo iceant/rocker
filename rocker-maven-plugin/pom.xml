@@ -9,12 +9,17 @@
     <parent>
         <groupId>com.fizzed</groupId>
         <artifactId>rocker</artifactId>
-        <version>1.2.4-SNAPSHOT</version>
+        <version>1.2.6-SNAPSHOT</version>
     </parent>
     
     <properties>
         <main.java.package>com.fizzed.rocker.maven</main.java.package>
         <maven.version>3.1.0</maven.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
     
     <build>
